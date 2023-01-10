@@ -7,3 +7,6 @@ node_modules
 
 # any dstore file
 /.DS_Store
+
+# tailwind generated
+/app/styles/app.css
