@@ -6,6 +6,10 @@ module.exports = {
       boxShadow: {
         brutalism: "2px 2px 0px #000000",
       },
+      fontFamily: {
+        // ty copilot
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],

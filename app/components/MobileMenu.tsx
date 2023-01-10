@@ -4,6 +4,14 @@ import { Menu, Transition } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/20/solid";
 import { classNames } from "~/utils/tailwind";
 
+const links = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Blog", path: "/blog" },
+  { name: "Contact", path: "/contact" },
+  { name: "Credits", path: "/credits" },
+];
+
 export function MobileMenu() {
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -26,60 +34,21 @@ export function MobileMenu() {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="/"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Link 1
-                </Link>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="/"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Link 2
-                </Link>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="/"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Link 3
-                </Link>
-              )}
-            </Menu.Item>
-            <form method="POST" action="#">
-              <Menu.Item>
+            {links.map((link) => (
+              <Menu.Item key={link.path}>
                 {({ active }) => (
-                  <button
-                    type="submit"
+                  <Link
+                    to={link.path}
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block w-full px-4 py-2 text-left text-sm"
+                      "block px-4 py-2 text-sm"
                     )}
                   >
-                    Link 4
-                  </button>
+                    {link.name}
+                  </Link>
                 )}
               </Menu.Item>
-            </form>
+            ))}
           </div>
         </Menu.Items>
       </Transition>
